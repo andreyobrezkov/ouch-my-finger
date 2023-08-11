@@ -14,24 +14,22 @@ export const videoRelationsSmartTagsPlugin = makeExtendSchemaPlugin((build) => {
     typeDefs: gql`
       extend type Video {
         nextVideo: Video
+        sections: VideosConnection
       }
     `,
     plans: {
-      // sections: VideoSectionsConnection
-      // VideoSectionsConnection:{
-      //   sections($video) {
-      //     const $sections = video.find({
-      //       section_parent_id: $video.get("id"),
-      //     });
-      //     return connection($sections);
-      //   },
-      // },
       Video: { // Plan Key must match the type name
         nextVideo($video) {
           return video.get({
             id: $video.get("next_video_id"),
           });
         },
+          sections($video) {
+            const $sections = video.find({
+              section_parent_id: $video.get("id"),
+            });
+            return connection($sections);
+          },
       },
     },
   };
