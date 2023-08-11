@@ -2,7 +2,9 @@
   "name": "@localrepo/app",
   "private": true,
   "scripts": {
-    "postgraphile": "postgraphile"
+    "postgraphile": "postgraphile",
+    "build": "tsc --project tsconfig.json",
+    "start": "yarn build && node --inspect dist/postgraphile-express-typescript-example.js"
   },
   "dependencies": {
     "@graphile-contrib/pg-many-to-many": "^2.0.0-beta.1",

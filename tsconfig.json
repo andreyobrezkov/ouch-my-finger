@@ -1,9 +1,29 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "target": "es2022",
-    "module": "es2022",
-    "moduleResolution": "NodeNext"
-  }
+    "module": "commonjs",
+    "moduleResolution": "NodeNext",
+    "noEmit": false,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "preserveWatchOutput": true,
+    "skipLibCheck": true
+  },
+  "ts-node": {
+    "experimentalResolver": true
+  },
+  "exclude": ["node_modules", "dist"]
 }
